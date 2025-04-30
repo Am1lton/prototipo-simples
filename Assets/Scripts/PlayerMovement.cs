@@ -8,10 +8,15 @@ namespace Player
         private Rigidbody rb;
         private Collider col;
         private LayerMask groundLayer;
+        private float height;
+        public bool grounded { private set; get; }
 
         [SerializeField] private float speed = 10f;
         [SerializeField] private float jumpForce = 30f;
         [SerializeField] private float extraGravity = 85f;
+        
+        public float GetJumpForce() => jumpForce;
+        
         
         private void Start()
         {
@@ -21,6 +26,7 @@ namespace Player
             rb.angularDrag = 0f;
             
             col = GetComponent<Collider>();
+            height = col.bounds.size.y;
             groundLayer = LayerMask.GetMask("Ground");
         }
 
@@ -32,7 +38,7 @@ namespace Player
            
            rb.velocity = new Vector3(moveInput.x, rb.velocity.y, moveInput.z);
 
-           if (!IsOnGround())
+           if (grounded)
            {
                rb.AddForce(Vector3.down * extraGravity, ForceMode.Acceleration);
            }
@@ -46,19 +52,15 @@ namespace Player
                transform.rotation = Quaternion.Euler(0f, 180f, 0f);
            }
         }
+
         private void Update()
         {
+            grounded = Physics.Raycast(transform.position, Vector3.down, height * 0.6f, groundLayer);
 
-           if (Input.GetKeyDown(KeyCode.Space) && IsOnGround())
-           {
+            if (Input.GetKeyDown(KeyCode.Space) && grounded)
+            {
                 rb.AddForce(0, jumpForce, 0, ForceMode.VelocityChange);
-           }
-        }
-        
-        public bool IsOnGround()
-        {
-            float height = col.bounds.size.y;
-            return Physics.Raycast(transform.position, Vector3.down, height * 0.6f, groundLayer);
+            }
         }
     }
 }

@@ -6,16 +6,8 @@
   <component name="ChangeListManager">
     <list default="true" id="27161d65-7189-40bf-af1f-2799d8548032" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/.idea.prototipo-simples/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.prototipo-simples/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Materials/Coin.mat" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Materials/Coin.mat" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scenes/SampleScene.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/SampleScene.unity" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/ScriptableObjects/Powers.asset" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/ScriptableObjects/Powers.asset.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/ScriptableObjects/Scripts.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/ScriptableObjects/Scripts/Powers_SO.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/ScriptableObjects/Scripts/Powers_SO.cs.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Classes/Power.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Classes/Power.cs.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Coin.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Coin.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Player Movement.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/PlayerMovement.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Player Movement.cs.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/PlayerMovement.cs.meta" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Scripts/PowerUp.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/PowerUp.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Scripts/PowerUpSystem.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/PowerUpSystem.cs" afterDir="false" />
     </list>
@@ -111,7 +103,7 @@
       <updated>1745515159069</updated>
       <workItem from="1745515159216" duration="4450000" />
       <workItem from="1745988644468" duration="4274000" />
-      <workItem from="1746042570156" duration="1214000" />
+      <workItem from="1746042570156" duration="3681000" />
     </task>
     <servers />
   </component>
