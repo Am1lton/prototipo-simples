@@ -27,9 +27,8 @@ namespace Player
         private void FixedUpdate()
         {
            float horizontalVelocity = Input.GetAxisRaw("Horizontal");
-           float verticalVelocity = Input.GetAxisRaw("Vertical");
            
-           Vector3 moveInput = new Vector3(horizontalVelocity, 0, verticalVelocity).normalized * speed;
+           Vector3 moveInput = new Vector3(horizontalVelocity, 0, 0).normalized * speed;
            
            rb.velocity = new Vector3(moveInput.x, rb.velocity.y, moveInput.z);
 
