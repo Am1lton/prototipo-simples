@@ -1,22 +1,20 @@
-﻿using System;
-using UnityEngine;
-using Classes;
+﻿using UnityEngine;
 
-    public class PowerUp : MonoBehaviour, ICollectable
+    public class PowerUp : Coin.Coin, ICollectable
     {
-        [SerializeField] private Power storedPower;
+        [SerializeField] private MonoBehaviour storedPowerMonoBehaviour;
 
-        private void Start()
+        protected override void Start()
         {
-            if (storedPower == null) storedPower = Power.Empty;
+            base.Start();
+            if (storedPowerMonoBehaviour == null) Destroy(gameObject);
         }
 
-        public void OnCollect(Transform collector)
+        public override void OnCollect(Transform collector)
         {
-            if (storedPower == Power.Empty) return;
             if (collector.TryGetComponent(out PowerUpSystem powerUpSystem))
             {
-                powerUpSystem.AddPowerUp(storedPower);
+                powerUpSystem.AddPowerUp(storedPowerMonoBehaviour);
             }
         }
     }

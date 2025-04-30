@@ -1,14 +1,14 @@
 using System.Collections.Generic;
 using UnityEngine;
-using Classes;
 
 public class PowerUpSystem : MonoBehaviour
 {
-    private Stack<Power> powers = new();
+    private Stack<string> powerNames = new();
 
-    public void AddPowerUp(Power power)
+    public void AddPowerUp(MonoBehaviour power)
     {
-        if ( power == Power.Empty) return;
-        powers.Push(power);
+        if ( power == null) return;
+        powerNames.Push(power.name);
+        gameObject.AddComponent(power.GetType());
     }
 }

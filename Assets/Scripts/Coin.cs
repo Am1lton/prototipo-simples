@@ -8,9 +8,9 @@ namespace Coin
     {
         private Vector3 startPosition;
 
-        private void Start() => startPosition = transform.position;
+        protected virtual void Start() => startPosition = transform.position;
 
-        private void Update()
+        protected virtual void Update()
         {
             RotateInPlace();
             
@@ -26,7 +26,7 @@ namespace Coin
         
         
         #region ICollectable
-            public void OnCollect(Transform collector)
+            public virtual void OnCollect(Transform collector)
             {
                 if (collector.TryGetComponent(out PlayerScore playerScore))
                 {
