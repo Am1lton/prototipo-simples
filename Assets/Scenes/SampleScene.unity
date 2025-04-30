@@ -606,7 +606,7 @@ Rigidbody:
   m_UseGravity: 1
   m_IsKinematic: 0
   m_Interpolate: 0
-  m_Constraints: 88
+  m_Constraints: 120
   m_CollisionDetection: 0
 --- !u!136 &446536720
 CapsuleCollider:
@@ -905,13 +905,13 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 963194225}
   serializedVersion: 2
-  m_LocalRotation: {x: 0.20410259, y: -0, z: -0, w: 0.97894955}
-  m_LocalPosition: {x: 0, y: 5.35, z: -10}
+  m_LocalRotation: {x: 0.15228163, y: -0, z: -0, w: 0.9883372}
+  m_LocalPosition: {x: 0, y: 5, z: -10}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_LocalEulerAnglesHint: {x: 23.554, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: 17.518, y: 0, z: 0}
 --- !u!1818360608 &963194229
 PositionConstraint:
   m_ObjectHideFlags: 0
@@ -922,8 +922,8 @@ PositionConstraint:
   m_Enabled: 1
   serializedVersion: 2
   m_Weight: 1
-  m_TranslationAtRest: {x: 0, y: 5.35, z: -10}
-  m_TranslationOffset: {x: 0, y: 4.19, z: -10}
+  m_TranslationAtRest: {x: 0, y: 5, z: -10}
+  m_TranslationOffset: {x: 0, y: 3.8400002, z: -10}
   m_AffectTranslationX: 1
   m_AffectTranslationY: 1
   m_AffectTranslationZ: 1
@@ -1048,7 +1048,6 @@ GameObject:
   - component: {fileID: 1175188257}
   - component: {fileID: 1175188260}
   - component: {fileID: 1175188259}
-  - component: {fileID: 1175188258}
   m_Layer: 0
   m_Name: Face
   m_TagString: Untagged
@@ -1071,27 +1070,6 @@ Transform:
   m_Children: []
   m_Father: {fileID: 446536723}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!65 &1175188258
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1175188256}
-  m_Material: {fileID: 0}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_LayerOverridePriority: 0
-  m_IsTrigger: 0
-  m_ProvidesContacts: 0
-  m_Enabled: 1
-  serializedVersion: 3
-  m_Size: {x: 1, y: 1, z: 1}
-  m_Center: {x: 0, y: 0, z: 0}
 --- !u!23 &1175188259
 MeshRenderer:
   m_ObjectHideFlags: 0

@@ -36,7 +36,15 @@ namespace Player
            {
                rb.AddForce(Vector3.down * extraGravity, ForceMode.Acceleration);
            }
-            
+
+           if (rb.velocity.x > 0)
+           {
+               transform.rotation = Quaternion.Euler(0f, 0f, 0f);
+           }
+           else if (rb.velocity.x < 0)
+           {
+               transform.rotation = Quaternion.Euler(0f, 180f, 0f);
+           }
         }
         private void Update()
         {
