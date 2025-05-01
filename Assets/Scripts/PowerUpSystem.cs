@@ -6,11 +6,11 @@ public class PowerUpSystem : MonoBehaviour
 {
     private Stack<string> powerNames = new();
 
-    public void AddPowerUp(Component power)
+    public void AddPowerUp(MonoScript power)
     {
         if ( power == null) return;
         powerNames.Push(power.name);
-        gameObject.AddComponent(power.GetType());
+        gameObject.AddComponent(power.GetClass());
     }
 
     public void RemoveMostRecentPowerUp()

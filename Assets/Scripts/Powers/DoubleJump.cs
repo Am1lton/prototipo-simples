@@ -1,3 +1,4 @@
+using System;
 using Player;
 using UnityEngine;
 
@@ -8,32 +9,29 @@ namespace Powers
     {
         private Rigidbody rb;
         private PlayerMovement playerMovement;
-        
-        private bool canDoubleJump;
-        private bool hasDoubleJumped;
-        
+
+        private uint jumps = 1;
+        private const uint MAX_JUMPS = 1;
+
         private void Start()
         {
             rb = GetComponent<Rigidbody>();
             playerMovement = GetComponent<PlayerMovement>();
         }
 
+        private void FixedUpdate()
+        {
+            if (playerMovement.grounded)
+                jumps = MAX_JUMPS;
+        }
+
         private void Update()
         {
-            if (Input.GetKeyDown(KeyCode.Space) && canDoubleJump)
+            if (playerMovement.grounded) return;
+            if (Input.GetKeyDown(KeyCode.Space) && jumps > 0)
             {
-                rb.AddForce(Vector3.up * playerMovement.GetJumpForce(), ForceMode.VelocityChange);
-                hasDoubleJumped = true;
-            }
-
-            switch (playerMovement.grounded)
-            {
-                case false when !hasDoubleJumped:
-                    canDoubleJump = true;
-                    break;
-                case true:
-                    hasDoubleJumped = false;
-                    break;
+                playerMovement.Jump();
+                jumps--;
             }
         }
     }

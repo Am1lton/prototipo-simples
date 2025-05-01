@@ -38,7 +38,7 @@ namespace Player
            
            rb.velocity = new Vector3(moveInput.x, rb.velocity.y, moveInput.z);
 
-           if (grounded)
+           if (!grounded)
            {
                rb.AddForce(Vector3.down * extraGravity, ForceMode.Acceleration);
            }
@@ -59,8 +59,10 @@ namespace Player
 
             if (Input.GetKeyDown(KeyCode.Space) && grounded)
             {
-                rb.AddForce(0, jumpForce, 0, ForceMode.VelocityChange);
+                Jump();
             }
         }
+
+        public void Jump() => rb.velocity = new Vector3(rb.velocity.x, jumpForce, rb.velocity.z);
     }
 }

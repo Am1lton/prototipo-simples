@@ -118,4 +118,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ae64869a8dc64b409f1c08e6820a69dd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  storedPowerMonoBehaviour: {fileID: 0}
+  storedPowerScript: {fileID: 11500000, guid: 6c5ab4fc3668f854cbe198145178dbb3, type: 3}
