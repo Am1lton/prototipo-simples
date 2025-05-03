@@ -21,13 +21,13 @@ namespace Powers
 
         private void FixedUpdate()
         {
-            if (playerMovement.grounded)
+            if (playerMovement.Grounded)
                 jumps = MAX_JUMPS;
         }
 
         private void Update()
         {
-            if (playerMovement.grounded) return;
+            if (playerMovement.Grounded) return;
             if (Input.GetKeyDown(KeyCode.Space) && jumps > 0)
             {
                 playerMovement.Jump();

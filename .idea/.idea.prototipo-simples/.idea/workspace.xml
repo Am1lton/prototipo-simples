@@ -6,14 +6,15 @@
   <component name="ChangeListManager">
     <list default="true" id="27161d65-7189-40bf-af1f-2799d8548032" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/.idea.prototipo-simples/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.prototipo-simples/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Prefabs/PowerUps/Double Jump.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Prefabs/PowerUps/Double Jump.prefab" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Materials/Slipperyness.physicMaterial" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Materials/Slipperyness.physicMaterial" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Scenes/SampleScene.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/SampleScene.unity" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/ScriptableObjects.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/PlayerMovement.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/PlayerMovement.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/PowerUp.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/PowerUp.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Classes.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/PlayerMovement.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/PlayerMovement.cs.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/PlayerScore.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/PlayerScore.cs.meta" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Scripts/PowerUpSystem.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/PowerUpSystem.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Scripts/Powers/DoubleJump.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Powers/DoubleJump.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Powers/DoubleJump.cs.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Powers/DoubleJump.cs.meta" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -24,7 +25,10 @@
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
   <component name="HighlightingSettingsPerFile">
-    <setting file="file://$PROJECT_DIR$/Assets/Scripts/Classes/Power.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/7de0f9f4a2134c3b921f57cc38c5700f1fe00/14/a6822bdc/Physics.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/c3dca0e61d5249b79ac00f7b2c7a01ef176e00/d4/d48c825c/GameObject.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/c3dca0e61d5249b79ac00f7b2c7a01ef176e00/e7/96febcd5/LayerMask.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/Scripts/Powers/Dash.cs" root0="FORCE_HIGHLIGHTING" />
   </component>
   <component name="ProjectColorInfo">{
   &quot;associatedIndex&quot;: 2
@@ -108,6 +112,7 @@
       <workItem from="1745515159216" duration="4450000" />
       <workItem from="1745988644468" duration="4274000" />
       <workItem from="1746042570156" duration="3681000" />
+      <workItem from="1746303309384" duration="6056000" />
     </task>
     <servers />
   </component>

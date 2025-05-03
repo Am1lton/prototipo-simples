@@ -9,6 +9,8 @@ public class PowerUpSystem : MonoBehaviour
     public void AddPowerUp(MonoScript power)
     {
         if ( power == null) return;
+        if (powerNames.Contains(power.name)) return;
+        
         powerNames.Push(power.name);
         gameObject.AddComponent(power.GetClass());
     }
