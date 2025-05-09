@@ -6,14 +6,8 @@
   <component name="ChangeListManager">
     <list default="true" id="27161d65-7189-40bf-af1f-2799d8548032" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/.idea.prototipo-simples/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.prototipo-simples/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Materials/Slipperyness.physicMaterial" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Materials/Slipperyness.physicMaterial" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scenes/SampleScene.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/SampleScene.unity" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Classes.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/PlayerMovement.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/PlayerMovement.cs.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/PlayerScore.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/PlayerScore.cs.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/PowerUpSystem.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/PowerUpSystem.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Player/PlayerMovement.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Player/PlayerMovement.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Powers/Dash.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Powers/Dash.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Scripts/Powers/DoubleJump.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Powers/DoubleJump.cs" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -59,7 +53,7 @@
 }</component>
   <component name="RunManager" selected="Attach to Unity Editor.Attach to Unity Editor">
     <configuration name="Start Unity" type="RunUnityExe" factoryName="Unity Executable">
-      <option name="EXE_PATH" value="C:\Program Files\Unity\Hub\Editor\2022.3.57f1-x86_64\Editor\Unity.exe" />
+      <option name="EXE_PATH" value="C:\Program Files\Unity\Hub\Editor\2022.3.57f1\Editor\Unity.exe" />
       <option name="PROGRAM_PARAMETERS" value="-projectPath &quot;S:\Unity Projects\prototipo-simples&quot; -debugCodeOptimization" />
       <option name="WORKING_DIRECTORY" value="S:\Unity Projects\prototipo-simples" />
       <option name="PASS_PARENT_ENVS" value="1" />
@@ -67,7 +61,7 @@
       <method v="2" />
     </configuration>
     <configuration name="Unit Tests (batch mode)" type="RunUnityExe" factoryName="Unity Executable">
-      <option name="EXE_PATH" value="C:\Program Files\Unity\Hub\Editor\2022.3.57f1-x86_64\Editor\Unity.exe" />
+      <option name="EXE_PATH" value="C:\Program Files\Unity\Hub\Editor\2022.3.57f1\Editor\Unity.exe" />
       <option name="PROGRAM_PARAMETERS" value="-runTests -batchmode -projectPath &quot;S:\Unity Projects\prototipo-simples&quot; -testResults Logs/results.xml -logFile Logs/Editor.log -testPlatform EditMode -debugCodeOptimization" />
       <option name="WORKING_DIRECTORY" value="S:\Unity Projects\prototipo-simples" />
       <option name="PASS_PARENT_ENVS" value="1" />
@@ -112,7 +106,9 @@
       <workItem from="1745515159216" duration="4450000" />
       <workItem from="1745988644468" duration="4274000" />
       <workItem from="1746042570156" duration="3681000" />
-      <workItem from="1746303309384" duration="6056000" />
+      <workItem from="1746303309384" duration="6275000" />
+      <workItem from="1746583951103" duration="814000" />
+      <workItem from="1746754012622" duration="6103000" />
     </task>
     <servers />
   </component>

@@ -9,35 +9,31 @@ namespace Powers
         private Rigidbody rb;
         private PlayerMovement movement;
 
-        [SerializeField] private float dashMaxSpeed = 20f;
-        [SerializeField] private float defaultMaxSpeed;
+        [SerializeField] private float dashMaxSpeed = 40f;
         [SerializeField] private float dashCooldown = 2f;
 
         [SerializeField] private float dashTimer = 0;
 
         private bool canDash = false;
         private bool dashing = false;
+        private float defaultSpeedFallof;
         private void Start()
         {
             rb = GetComponent<Rigidbody>();
             movement = GetComponent<PlayerMovement>();
-            defaultMaxSpeed = movement.maxHorizontalSpeed;
+            defaultSpeedFallof = movement.maxSpeedFalloff;
         }
 
 
         private void FixedUpdate()
         {
             rb.useGravity = !dashing;
-            
-            if (movement.maxHorizontalSpeed <= defaultMaxSpeed)
+
+            if (movement.temporaryMaxHorizontalSpeed <= movement.MaxHorizontalSpeed)
             {
-                movement.maxHorizontalSpeed = defaultMaxSpeed;
                 dashing = false;
-                return;
+                movement.maxSpeedFalloff = defaultSpeedFallof;
             }
-            
-            movement.maxHorizontalSpeed = movement.maxHorizontalSpeed - 2 * dashMaxSpeed * Time.deltaTime < defaultMaxSpeed ?
-                defaultMaxSpeed : movement.maxHorizontalSpeed - 2 * dashMaxSpeed * Time.deltaTime;
         }
         
         private void Update()
@@ -48,27 +44,26 @@ namespace Powers
                 canDash = true;
                 dashTimer = 0;
             }
+
+            if (dashing)
+                movement.maxSpeedFalloff += 10 * dashMaxSpeed * Time.deltaTime;
             
             if (Input.GetKeyDown(KeyCode.LeftShift) && canDash)
             {
-                movement.maxHorizontalSpeed = dashMaxSpeed;
+                movement.temporaryMaxHorizontalSpeed = dashMaxSpeed;
                 switch (rb.velocity.x)
                 {
                     case < 0:
-                        rb.AddForce(Vector3.left * movement.maxHorizontalSpeed, ForceMode.VelocityChange);
+                        rb.velocity = new Vector3(-movement.temporaryMaxHorizontalSpeed, 0, 0);
                         break;
                     case >= 0:
-                        rb.AddForce(Vector3.right * movement.maxHorizontalSpeed, ForceMode.VelocityChange);
+                        rb.velocity = new Vector3(movement.temporaryMaxHorizontalSpeed, 0, 0);
                         break;
                 }
                 
                 canDash = false;
                 dashing = true;
-                rb.velocity = new Vector3(rb.velocity.x, 0, 0);
             }
-            
-            
-            
         }
     }
 }

@@ -1,5 +1,4 @@
 using UnityEngine;
-using UnityEngine.Serialization;
 
 namespace Player
 {
@@ -12,7 +11,9 @@ namespace Player
         private float height;
         private float width;
 
-        public float maxHorizontalSpeed = 10f;
+        public float MaxHorizontalSpeed { get; set; } = 10f;
+        public float temporaryMaxHorizontalSpeed = 10f;
+        public float maxSpeedFalloff = 50f;
         
         public bool Grounded { private set; get; }
         public bool OnWallRight { private set; get; }
@@ -27,7 +28,8 @@ namespace Player
         
         private void Start()
         {
-            maxHorizontalSpeed = speed;
+            MaxHorizontalSpeed = speed;
+            temporaryMaxHorizontalSpeed = MaxHorizontalSpeed;
             rb = GetComponent<Rigidbody>();
             
             rb.drag = 0f;
@@ -42,14 +44,13 @@ namespace Player
         private void FixedUpdate()
         {
            float horizontalInput = Input.GetAxisRaw("Horizontal");
-           
            Vector3 movement = new Vector3(horizontalInput * speed, 0, 0);
            
            rb.AddForce(movement, ForceMode.VelocityChange);
            
-           if (Mathf.Abs(rb.velocity.x) > maxHorizontalSpeed)
-               rb.velocity = rb.velocity.x > 0 ? new Vector3(maxHorizontalSpeed, rb.velocity.y, rb.velocity.z) :
-                   new Vector3(-maxHorizontalSpeed, rb.velocity.y, rb.velocity.z);
+           if (Mathf.Abs(rb.velocity.x) > temporaryMaxHorizontalSpeed)
+               rb.velocity = rb.velocity.x > 0 ? new Vector3(temporaryMaxHorizontalSpeed, rb.velocity.y, rb.velocity.z) :
+                   new Vector3(-temporaryMaxHorizontalSpeed, rb.velocity.y, rb.velocity.z);
 
            if (!Grounded && rb.useGravity)
            {
@@ -57,7 +58,7 @@ namespace Player
            }
            else
            {
-               if (Mathf.Abs(rb.velocity.x) < maxHorizontalSpeed - 0.1f)
+               if (Mathf.Abs(rb.velocity.x) < temporaryMaxHorizontalSpeed - 0.1f)
                    rb.velocity = new Vector3(0, rb.velocity.y, rb.velocity.z);
            }
 
@@ -67,12 +68,16 @@ namespace Player
                < 0 => Quaternion.Euler(0f, 180f, 0f),
                _ => transform.rotation
            };
+           
+           if (temporaryMaxHorizontalSpeed > MaxHorizontalSpeed)
+               temporaryMaxHorizontalSpeed -= maxSpeedFalloff * Time.deltaTime;
+           if (Mathf.Abs(rb.velocity.x) <= MaxHorizontalSpeed)
+               temporaryMaxHorizontalSpeed = MaxHorizontalSpeed;
         }
 
         private void Update()
         {
             Grounded = Physics.Raycast(transform.position, Vector3.down, height * 0.6f, groundLayer);
-            
             if (!Grounded)
             {
                 OnWallRight = Physics.Raycast(transform.position, Vector3.right, width * 0.6f, groundLayer);
