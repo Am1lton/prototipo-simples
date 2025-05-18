@@ -1,17 +1,18 @@
 ﻿using System;
 using JetBrains.Annotations;
 using UnityEngine;
-using UnityEngine.Events;
-using UnityEngine.Serialization;
 
 public class Health : MonoBehaviour
     {
         [SerializeField] private int health = 3;
         [SerializeField] private int maxHealth = 3;
-        [SerializeField] [CanBeNull] private UnityEvent onDeath;
+        [CanBeNull] public event Action OnDeath;
+        [CanBeNull] public event Action OnTakeDamage;
 
         public virtual void TakeDamage(int damage)
         {
+            OnTakeDamage?.Invoke();
+            
             if (health - damage <= 0)
             {
                 health = 0;
@@ -28,11 +29,14 @@ public class Health : MonoBehaviour
         
         protected virtual void Death()
         {
-            if (onDeath == null) return;
-            
-            if (onDeath.GetPersistentEventCount() == 0)
-                Destroy(gameObject);
+            if (OnDeath != null)
+                OnDeath.Invoke();
             else
-                onDeath.Invoke();
+                DefaultDeath();
+        }
+
+        public virtual void DefaultDeath()
+        {
+            Destroy(gameObject);
         }
     }

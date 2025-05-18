@@ -5,7 +5,7 @@ namespace Powers
     public class Projectile : MonoBehaviour
     {
         private GameObject projectile;
-        private float cooldown = 1;
+        private float cooldown = 0.7f;
         private float timer = 0;
         private bool canFire = true;
         
@@ -22,7 +22,10 @@ namespace Powers
             {
                 timer += Time.deltaTime;
                 if (timer >= cooldown)
+                {
                     canFire = true;
+                    timer = 0;
+                }
             }
 
             if (Input.GetMouseButtonDown(0) && canFire)

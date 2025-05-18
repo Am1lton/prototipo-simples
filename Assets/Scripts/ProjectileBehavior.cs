@@ -6,13 +6,13 @@ using UnityEngine;
 [RequireComponent(typeof(Rigidbody))]
 public class ProjectileBehavior : MonoBehaviour
 {
-    [SerializeField]private float projectileSpeed = 10f;
     [SerializeField]private float projectileLifeTime = 3f;
     [SerializeField]private int projectileDamage = 1;
     [SerializeField] private int projectilePiercing = 1;
     public Transform parent;
 
     private Rigidbody rb;
+    private float projectileSpeed = 18f;
     
     void Start()
     {
@@ -31,5 +31,6 @@ public class ProjectileBehavior : MonoBehaviour
             projectilePiercing--;
             if (projectilePiercing <= 0) Destroy(gameObject);
         }
+        Destroy(gameObject);
     }
 }

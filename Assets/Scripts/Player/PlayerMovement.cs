@@ -57,7 +57,7 @@ namespace Player
                rb.AddForce(Vector3.down * extraGravity, ForceMode.Acceleration);
            }
            else
-           {
+           { 
                if (Mathf.Abs(rb.velocity.x) < temporaryMaxHorizontalSpeed - 0.1f)
                    rb.velocity = new Vector3(0, rb.velocity.y, rb.velocity.z);
            }

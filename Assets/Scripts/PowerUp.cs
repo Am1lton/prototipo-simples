@@ -1,4 +1,5 @@
-﻿using UnityEditor;
+﻿using Player;
+using UnityEditor;
 using UnityEngine;
 
     public class PowerUp : Coin.Coin
