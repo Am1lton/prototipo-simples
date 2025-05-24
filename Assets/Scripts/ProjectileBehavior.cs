@@ -12,7 +12,8 @@ public class ProjectileBehavior : MonoBehaviour
     public Transform parent;
 
     private Rigidbody rb;
-    private float projectileSpeed = 18f;
+    
+    public float projectileSpeed = 18f;
     
     void Start()
     {

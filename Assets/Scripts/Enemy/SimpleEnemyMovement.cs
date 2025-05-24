@@ -1,21 +1,25 @@
 using UnityEngine;
+using UnityEngine.Serialization;
 
 namespace Enemy
 {
     [RequireComponent(typeof(Collider), typeof(Rigidbody))]
     public class SimpleEnemyMovement : MonoBehaviour
     {
+        public bool canMove = true;
+        
         private Collider collider;
         private Rigidbody rb;
         
         [SerializeField] private float speed = 3f;
-        [SerializeField] private float ledgeDetectionLenght = 0.3f;
-        [SerializeField] private float obstacleDetectionLenght = 0.3f;
+        [SerializeField] private float ledgeDetectionLength = 0.3f;
+        [SerializeField] private float obstacleDetectionLength = 0.3f;
         
         private float xOffset;
         private float yOffset;
     
         [SerializeField] private LayerMask groundLayer;
+        private void Reset() => groundLayer = LayerMask.GetMask("Ground");
         private void Start()
         {
             collider = GetComponent<Collider>();
@@ -27,31 +31,31 @@ namespace Enemy
 
         private void Update()
         {
+            if (!canMove) return;
             
-            Vector3 ledgeDetectionOrigin = transform.position + new Vector3(xOffset * transform.right.x, -yOffset, 0);
-            if(!Physics.Raycast(ledgeDetectionOrigin, Vector3.down, ledgeDetectionLenght, groundLayer))
+            Vector3 ledgeDetectionOrigin = transform.position + new Vector3(xOffset * transform.right.x, -yOffset + 0.1f, 0);
+            if(!Physics.Raycast(ledgeDetectionOrigin, Vector3.down, ledgeDetectionLength, groundLayer))
                 OnLedge();
             
-            if (Physics.Raycast(transform.position + (transform.right * xOffset), transform.right, obstacleDetectionLenght,
+            if (Physics.Raycast(transform.position + (transform.right * xOffset), transform.right, obstacleDetectionLength,
                     groundLayer))
                 OnObstacle();
         }
 
         private void FixedUpdate()
         {
+            if (!canMove) return;
             rb.velocity = new Vector3(speed * transform.right.x, rb.velocity.y, rb.velocity.z);
         }
 
         private void OnLedge()
         {
-            Debug.Log("Ledge");
-            transform.rotation = Quaternion.Euler(transform.rotation.x, transform.rotation.y > 0 ? 0 : 180, transform.rotation.z);
+            transform.right = transform.right.x < 0 ? Vector3.right : Vector3.left;
         }
 
         private void OnObstacle()
         {
-            Debug.Log("Obstacle");
-            transform.rotation = Quaternion.Euler(transform.rotation.x, transform.rotation.y > 0 ? 0 : 180, transform.rotation.z);
+            transform.right = transform.right.x < 0 ? Vector3.right : Vector3.left;
         }
     }
 }

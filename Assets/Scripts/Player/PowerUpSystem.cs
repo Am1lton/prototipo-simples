@@ -35,6 +35,7 @@ namespace Player
 
         private void RemoveMostRecentPowerUp()
         {
+            if (powerNames.Count == 0) return;
             var component = gameObject.GetComponent(powerNames.Pop());
             if (component == null) return;
             Destroy(component);
