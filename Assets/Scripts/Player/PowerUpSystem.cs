@@ -12,7 +12,9 @@ namespace Player
         {
             if (TryGetComponent(out Health health))
             {
+                Debug.Log("Subscribed to health");
                 health.OnTakeDamage += RemoveMostRecentPowerUp;
+                health.useDefaultDamage = false;
             }
         }
 
@@ -21,6 +23,7 @@ namespace Player
             if (TryGetComponent(out Health health))
             {
                 health.OnTakeDamage -= RemoveMostRecentPowerUp;
+                health.useDefaultDamage = true;
             }
         }
         
@@ -35,10 +38,15 @@ namespace Player
 
         private void RemoveMostRecentPowerUp()
         {
-            if (powerNames.Count == 0) return;
-            var component = gameObject.GetComponent(powerNames.Pop());
-            if (component == null) return;
-            Destroy(component);
+            if (powerNames.Count == 0)
+            {
+                Debug.Log("Died");
+                return;
+            }
+            
+            Component component = gameObject.GetComponent(powerNames.Pop());
+            if (component != null)
+                Destroy(component);
         }
     }
 }

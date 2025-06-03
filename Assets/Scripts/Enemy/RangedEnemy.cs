@@ -10,6 +10,7 @@ namespace Enemy
         private SimpleEnemyMovement simpleMovement;
         private bool canAttack = false;
         private float timer = 0;
+        private Health health;
 
         [SerializeField] private float attackRange = 7;
         [SerializeField] private float maxShootAngle = 45;
@@ -23,6 +24,18 @@ namespace Enemy
             simpleMovement = GetComponent<SimpleEnemyMovement>();
         }
 
+        private void OnEnable()
+        {
+            health = GetComponent<Health>();
+            if (health)
+                health.OnDeath += Death;
+        }
+
+        private void OnDisable()
+        {
+            if (health)
+                health.OnDeath -= Death;
+        }
     
         private void Update()
         {
@@ -55,6 +68,13 @@ namespace Enemy
                 rot = Quaternion.Euler(euler);
                 projectileScript.Shoot(transform.position, rot, projectileSpeed, transform);
             }
+        }
+        
+        
+        private void Death()
+        {
+            GameManager.Instance.player.GetComponent<Player.PlayerScore>().AddScore(10);
+            Destroy(gameObject);
         }
     }
 }

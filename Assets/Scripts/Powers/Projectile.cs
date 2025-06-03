@@ -16,7 +16,7 @@ namespace Powers
             projectile = Resources.Load("Powers/Projectile") as GameObject;
         }
 
-        void Update()
+        protected virtual void Update()
         {
             if (!canFire)
             {
@@ -32,19 +32,20 @@ namespace Powers
         public void Shoot(Vector3 origin, Quaternion rotation, float projectileSpeed, Transform parent)
         {
             if (!canFire) return;
-            GameObject spawnedProjectile = Instantiate(projectile, origin, rotation);
+            GameObject spawnedProjectile = Instantiate(projectile, origin, rotation, parent);
             ProjectileBehavior projBhvr = spawnedProjectile.GetComponent<ProjectileBehavior>();
-            projBhvr.parent = parent;
             projBhvr.projectileSpeed = projectileSpeed;
             canFire = false;
         }
         
         public void Shoot(Vector3 origin, Quaternion rotation, Transform parent)
         {
-            if (!canFire) return;
-            GameObject spawnedProjectile = Instantiate(projectile, origin, rotation);
-            ProjectileBehavior projBhvr = spawnedProjectile.GetComponent<ProjectileBehavior>();
-            projBhvr.parent = parent;
+            if (!canFire)
+            {
+                Debug.Log("Projectile on Cooldown");
+                return;
+            }
+            GameObject spawnedProjectile = Instantiate(projectile, origin, rotation, parent);
             canFire = false;
         }
     }

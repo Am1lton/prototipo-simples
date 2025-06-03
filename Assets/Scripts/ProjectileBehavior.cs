@@ -8,15 +8,17 @@ public class ProjectileBehavior : MonoBehaviour
 {
     [SerializeField]private float projectileLifeTime = 3f;
     [SerializeField]private int projectileDamage = 1;
-    [SerializeField] private int projectilePiercing = 1;
-    public Transform parent;
+    private Transform parent;
 
+    private bool canCollide = true;
     private Rigidbody rb;
     
     public float projectileSpeed = 18f;
     
-    void Start()
+    private void Start()
     {
+        parent = transform.parent;
+        transform.parent = null;
         rb = GetComponent<Rigidbody>();
         rb.velocity = transform.right * projectileSpeed;
         Destroy(gameObject, projectileLifeTime);
@@ -24,14 +26,22 @@ public class ProjectileBehavior : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
+        if (!canCollide)
+        {
+            Destroy(gameObject);
+            return;
+        }
+        
         if (other.transform == parent) return;
         
         if (other.gameObject.TryGetComponent(out Health health))
         {
             health.TakeDamage(projectileDamage);
-            projectilePiercing--;
-            if (projectilePiercing <= 0) Destroy(gameObject);
+            Destroy(gameObject);
+            canCollide = false;
+            return;
         }
+        canCollide = false;
         Destroy(gameObject);
     }
 }

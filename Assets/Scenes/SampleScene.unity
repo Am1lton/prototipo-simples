@@ -1098,9 +1098,17 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 2714115025482070102, guid: 588f0da4ec3d2764ea62dad2a3f553dc, type: 3}
+      propertyPath: m_Layer
+      value: 8
+      objectReference: {fileID: 0}
     - target: {fileID: 4991764219600050991, guid: 588f0da4ec3d2764ea62dad2a3f553dc, type: 3}
       propertyPath: m_Name
       value: RangedEnemy
+      objectReference: {fileID: 0}
+    - target: {fileID: 4991764219600050991, guid: 588f0da4ec3d2764ea62dad2a3f553dc, type: 3}
+      propertyPath: m_Layer
+      value: 8
       objectReference: {fileID: 0}
     - target: {fileID: 6536454432804398888, guid: 588f0da4ec3d2764ea62dad2a3f553dc, type: 3}
       propertyPath: m_Constraints
@@ -2436,6 +2444,26 @@ PrefabInstance:
     - target: {fileID: 3919312678811152860, guid: c50f0fa0dfc64c64eae2164bb23bb8c4, type: 3}
       propertyPath: m_Name
       value: BasicEnemy
+      objectReference: {fileID: 0}
+    - target: {fileID: 3919312678811152860, guid: c50f0fa0dfc64c64eae2164bb23bb8c4, type: 3}
+      propertyPath: m_Layer
+      value: 8
+      objectReference: {fileID: 0}
+    - target: {fileID: 6172440886649204564, guid: c50f0fa0dfc64c64eae2164bb23bb8c4, type: 3}
+      propertyPath: m_Layer
+      value: 7
+      objectReference: {fileID: 0}
+    - target: {fileID: 7826655847257538380, guid: c50f0fa0dfc64c64eae2164bb23bb8c4, type: 3}
+      propertyPath: m_ExcludeLayers.m_Bits
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7826655847257538380, guid: c50f0fa0dfc64c64eae2164bb23bb8c4, type: 3}
+      propertyPath: m_IncludeLayers.m_Bits
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7826655847257538380, guid: c50f0fa0dfc64c64eae2164bb23bb8c4, type: 3}
+      propertyPath: m_LayerOverridePriority
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
