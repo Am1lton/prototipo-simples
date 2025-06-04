@@ -16,6 +16,7 @@ namespace Enemy
         [SerializeField] private float maxShootAngle = 45;
         [SerializeField] private float attackCooldown = 2f;
         [SerializeField] private float projectileSpeed = 9f;
+        [SerializeField] private ParticleSystem deathParticle;
 
     
         private void Start()
@@ -73,6 +74,7 @@ namespace Enemy
         
         private void Death()
         {
+            Instantiate(deathParticle, transform.position, Quaternion.identity);
             GameManager.Instance.player.GetComponent<Player.PlayerScore>().AddScore(10);
             Destroy(gameObject);
         }

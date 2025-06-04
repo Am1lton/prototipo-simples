@@ -5,6 +5,8 @@ using UnityEngine;
 public class BasicEnemy : MonoBehaviour
 {
     private Health health;
+    
+    [SerializeField] private ParticleSystem deathParticles;
 
     private void OnEnable()
     {
@@ -27,6 +29,7 @@ public class BasicEnemy : MonoBehaviour
 
     private void Death()
     {
+        Instantiate(deathParticles, transform.position, Quaternion.identity);
         GameManager.Instance.player.GetComponent<PlayerScore>().AddScore(5);
         Destroy(gameObject);
     }

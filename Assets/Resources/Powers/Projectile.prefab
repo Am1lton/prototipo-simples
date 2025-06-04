@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 4043396606952756524}
   - component: {fileID: 4850384265221547647}
   - component: {fileID: 2332826088260969701}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: ProjectileMesh
   m_TagString: Projectile
   m_Icon: {fileID: 0}
@@ -95,7 +95,7 @@ GameObject:
   - component: {fileID: 7011011435323252871}
   - component: {fileID: 4806217180314065735}
   - component: {fileID: 3189011904202859705}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Projectile
   m_TagString: Projectile
   m_Icon: {fileID: 0}
@@ -137,7 +137,7 @@ Rigidbody:
     m_Bits: 0
   m_ExcludeLayers:
     serializedVersion: 2
-    m_Bits: 0
+    m_Bits: 1024
   m_ImplicitCom: 1
   m_ImplicitTensor: 1
   m_UseGravity: 0
@@ -157,9 +157,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 174ccaf2fcb91e640b49a38266819e40, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  projectileSpeed: 2
   projectileLifeTime: 3
   projectileDamage: 1
+  projectileSpeed: 2
 --- !u!136 &3189011904202859705
 CapsuleCollider:
   m_ObjectHideFlags: 0
@@ -173,7 +173,7 @@ CapsuleCollider:
     m_Bits: 0
   m_ExcludeLayers:
     serializedVersion: 2
-    m_Bits: 0
+    m_Bits: 1024
   m_LayerOverridePriority: 0
   m_IsTrigger: 1
   m_ProvidesContacts: 0

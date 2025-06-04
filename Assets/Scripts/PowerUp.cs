@@ -16,6 +16,9 @@ using UnityEngine;
         {
             if (collector.TryGetComponent(out PowerUpSystem powerUpSystem))
             {
+                var main = collectParticle.main;
+                main.startColor = GetComponent<MeshRenderer>().material.color;
+                Instantiate(collectParticle, transform.position, Quaternion.identity);
                 powerUpSystem.AddPowerUp(storedPowerScript);
                 Destroy(gameObject);
             }

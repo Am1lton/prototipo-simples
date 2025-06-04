@@ -7,6 +7,8 @@ namespace Coin
     public class Coin : MonoBehaviour, ICollectable
     {
         private Vector3 startPosition;
+        
+        [SerializeField] protected ParticleSystem collectParticle; 
 
         protected virtual void Start() => startPosition = transform.position;
 
@@ -30,6 +32,9 @@ namespace Coin
             {
                 if (collector.TryGetComponent(out PlayerScore playerScore))
                 {
+                    var main = collectParticle.main;
+                    main.startColor = GetComponent<MeshRenderer>().material.color;
+                    Instantiate(collectParticle, transform.position, Quaternion.identity);
                     playerScore.AddScore(1);
                     Destroy(gameObject);
                 }

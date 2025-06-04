@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 1245269549365604093}
   - component: {fileID: 8775116292365241830}
   - component: {fileID: -4768409094679873537}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Projectile
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -118,4 +118,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ae64869a8dc64b409f1c08e6820a69dd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  collectParticle: {fileID: 2320399527775393799, guid: 6ed40cafbd640324994c7ad76278f9b2, type: 3}
   storedPowerScript: {fileID: 11500000, guid: e4aad11da99dd3c4c829d3042c0c95a3, type: 3}

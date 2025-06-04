@@ -11,10 +11,6 @@ public class Health : MonoBehaviour
         [CanBeNull] public event Action OnTakeDamage;
 
         [NonSerialized] public bool useDefaultDamage = true;
-
-        private void Start()
-        {
-        }
         
         public virtual void TakeDamage(int damage)
         {

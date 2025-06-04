@@ -12,7 +12,6 @@ namespace Player
         {
             if (TryGetComponent(out Health health))
             {
-                Debug.Log("Subscribed to health");
                 health.OnTakeDamage += RemoveMostRecentPowerUp;
                 health.useDefaultDamage = false;
             }

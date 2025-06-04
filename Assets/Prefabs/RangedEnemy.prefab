@@ -61,7 +61,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 10303, guid: 0000000000000000f000000000000000, type: 0}
+  - {fileID: 2100000, guid: c78ad18838459dd43ac8572ec4b34948, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -151,7 +151,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 10303, guid: 0000000000000000f000000000000000, type: 0}
+  - {fileID: 2100000, guid: c78ad18838459dd43ac8572ec4b34948, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -282,3 +282,4 @@ MonoBehaviour:
   maxShootAngle: 45
   attackCooldown: 2
   projectileSpeed: 9
+  deathParticle: {fileID: 2320399527775393799, guid: 07f7526d66dfb5b4d8270cb0367c95c4, type: 3}
