@@ -7,7 +7,8 @@ namespace Player
     public class PowerUpSystem : MonoBehaviour
     {
         private Stack<string> powerNames = new();
-
+        [SerializeField] private ParticleSystem damageParticle;
+        
         private void OnEnable()
         {
             if (TryGetComponent(out Health health))
@@ -37,6 +38,8 @@ namespace Player
 
         private void RemoveMostRecentPowerUp()
         {
+            if (damageParticle)
+                Instantiate(damageParticle, transform.position, Quaternion.identity);
             if (powerNames.Count == 0)
             {
                 Debug.Log("Died");
