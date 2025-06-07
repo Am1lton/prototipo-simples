@@ -7,14 +7,12 @@ namespace Player
     {
         [SerializeField] private TextMeshProUGUI scoreText;
         
-        [SerializeField]private static int score = 0;
+        private static int score = 0;
         
-        public int GetScore() => score;
-
         public void AddScore(int value)
         {
-            PlayerScore.score += value;
-            scoreText.text = PlayerScore.score.ToString();
+            score += value;
+            scoreText.text = score.ToString();
         }
     }
 }

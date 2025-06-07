@@ -1,3 +1,4 @@
+using System;
 using UnityEngine;
 
 namespace Powers
@@ -9,14 +10,13 @@ namespace Powers
         private float timer = 0;
         private bool canFire = true;
         
-        // Start is called before the first frame update
+        
         void Start()
         {
             projectile = Resources.Load("Powers/Projectile") as GameObject;
         }
 
-        // Update is called once per frame
-        void Update()
+        protected virtual void Update()
         {
             if (!canFire)
             {
@@ -27,13 +27,26 @@ namespace Powers
                     timer = 0;
                 }
             }
+        }
 
-            if (Input.GetMouseButtonDown(0) && canFire)
+        public void Shoot(Vector3 origin, Quaternion rotation, float projectileSpeed, Transform parent)
+        {
+            if (!canFire) return;
+            GameObject spawnedProjectile = Instantiate(projectile, origin, rotation, parent);
+            ProjectileBehavior projBhvr = spawnedProjectile.GetComponent<ProjectileBehavior>();
+            projBhvr.projectileSpeed = projectileSpeed;
+            canFire = false;
+        }
+        
+        public void Shoot(Vector3 origin, Quaternion rotation, Transform parent)
+        {
+            if (!canFire)
             {
-                GameObject spawnedProjectile = Instantiate(projectile, transform.position, transform.rotation);
-                spawnedProjectile.GetComponent<ProjectileBehavior>().parent = transform;
-                canFire = false;
+                Debug.Log("Projectile on Cooldown");
+                return;
             }
+            GameObject spawnedProjectile = Instantiate(projectile, origin, rotation, parent);
+            canFire = false;
         }
     }
 }

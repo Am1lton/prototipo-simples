@@ -46,11 +46,13 @@ namespace Powers
             {
                 lastJumpSide = JumpSide.Left;
                 rb.velocity = new Vector3(playerMovement.temporaryMaxHorizontalSpeed, playerMovement.GetJumpForce() * 0.8f, 0);
+                transform.right = Vector3.right;
             }
             else if (lastJumpSide != JumpSide.Right)
             {
                 lastJumpSide = JumpSide.Right;
                 rb.velocity = new Vector3(-playerMovement.temporaryMaxHorizontalSpeed, playerMovement.GetJumpForce() * 0.8f, 0);
+                transform.right = Vector3.left;
             }
             canJump = false;
         }

@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 1245269549365604093}
   - component: {fileID: 8480084684272419678}
   - component: {fileID: 8775116292365241830}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Coin
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -97,6 +97,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4dd8a836346249e2a651855e9585f597, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  collectParticle: {fileID: 2320399527775393799, guid: 6ed40cafbd640324994c7ad76278f9b2, type: 3}
 --- !u!65 &8775116292365241830
 BoxCollider:
   m_ObjectHideFlags: 0

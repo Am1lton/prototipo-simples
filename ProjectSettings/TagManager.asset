@@ -13,11 +13,11 @@ TagManager:
   - Water
   - UI
   - Ground
-  - 
-  - 
-  - 
-  - 
-  - 
+  - EnemyWeakspot
+  - Enemies
+  - Projectile
+  - Collectable
+  - EndLevelDoor
   - 
   - 
   - 

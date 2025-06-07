@@ -62,7 +62,7 @@ namespace Player
                    rb.velocity = new Vector3(0, rb.velocity.y, rb.velocity.z);
            }
 
-           transform.rotation = rb.velocity.x switch //I didn't know you could do that with switch
+           transform.rotation = horizontalInput switch //I didn't know you could do that with switch
            {
                > 0 => Quaternion.Euler(0f, 0f, 0f),
                < 0 => Quaternion.Euler(0f, 180f, 0f),

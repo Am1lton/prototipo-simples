@@ -7,12 +7,14 @@ namespace Player
     public class PowerUpSystem : MonoBehaviour
     {
         private Stack<string> powerNames = new();
-
+        [SerializeField] private ParticleSystem damageParticle;
+        
         private void OnEnable()
         {
             if (TryGetComponent(out Health health))
             {
                 health.OnTakeDamage += RemoveMostRecentPowerUp;
+                health.useDefaultDamage = false;
             }
         }
 
@@ -21,6 +23,7 @@ namespace Player
             if (TryGetComponent(out Health health))
             {
                 health.OnTakeDamage -= RemoveMostRecentPowerUp;
+                health.useDefaultDamage = true;
             }
         }
         
@@ -35,9 +38,17 @@ namespace Player
 
         private void RemoveMostRecentPowerUp()
         {
-            var component = gameObject.GetComponent(powerNames.Pop());
-            if (component == null) return;
-            Destroy(component);
+            if (damageParticle)
+                Instantiate(damageParticle, transform.position, Quaternion.identity);
+            if (powerNames.Count == 0)
+            {
+                Debug.Log("Died");
+                return;
+            }
+            
+            Component component = gameObject.GetComponent(powerNames.Pop());
+            if (component != null)
+                Destroy(component);
         }
     }
 }
